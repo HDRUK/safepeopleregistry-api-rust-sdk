@@ -1,0 +1,57 @@
+# Organisation
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | Option<**i32**> | Model primary key | [optional]
+**created_at** | Option<**String**> |  | [optional]
+**updated_at** | Option<**String**> |  | [optional]
+**organisation_name** | Option<**String**> |  | [optional]
+**address_1** | Option<**String**> |  | [optional]
+**address_2** | Option<**String**> |  | [optional]
+**town** | Option<**String**> |  | [optional]
+**county** | Option<**String**> |  | [optional]
+**country** | Option<**String**> |  | [optional]
+**postcode** | Option<**String**> |  | [optional]
+**lead_applicant_organisation_name** | Option<**String**> |  | [optional]
+**lead_applicant_email** | Option<**String**> |  | [optional]
+**organisation_unique_id** | Option<**String**> |  | [optional]
+**applicant_names** | Option<**String**> |  | [optional]
+**funders_and_sponsors** | Option<**String**> |  | [optional]
+**sub_license_arrangements** | Option<**String**> |  | [optional]
+**verified** | Option<**bool**> |  | [optional]
+**dsptk_ods_code** | Option<**String**> |  | [optional]
+**dsptk_certified** | Option<**bool**> |  | [optional]
+**dsptk_expiry_date** | Option<**String**> |  | [optional]
+**iso_27001_certified** | Option<**bool**> |  | [optional]
+**iso_27001_certification_num** | Option<**String**> |  | [optional]
+**iso_expiry_date** | Option<**String**> |  | [optional]
+**ce_certified** | Option<**bool**> |  | [optional]
+**ce_certification_num** | Option<**String**> |  | [optional]
+**ce_expiry_date** | Option<**String**> |  | [optional]
+**ce_plus_certified** | Option<**bool**> |  | [optional]
+**ce_plus_certification_num** | Option<**String**> |  | [optional]
+**ce_plus_expiry_date** | Option<**String**> |  | [optional]
+**idvt_result** | Option<**i32**> |  | [optional]
+**idvt_result_perc** | Option<**i32**> |  | [optional]
+**idvt_errors** | Option<**String**> |  | [optional]
+**idvt_completed_at** | Option<**String**> |  | [optional]
+**companies_house_no** | Option<**String**> |  | [optional]
+**sector_id** | Option<**i32**> |  | [optional]
+**ror_id** | Option<**String**> | ROR.org identification for Research Organisations | [optional]
+**website** | Option<**String**> |  | [optional]
+**smb_status** | Option<**bool**> | Declaration of small/medium business | [optional]
+**organisation_size** | Option<**i32**> | Organisation size. Integer denotes list index rather than absolute value | [optional]
+**unclaimed** | Option<**bool**> | Unclaimed | [optional]
+**system_approved** | Option<**bool**> | Whether this Organisation has been approved to use the system or not | [optional]
+**ods_id** | Option<**String**> |  | [optional]
+**dsptk_status** | Option<**String**> |  | [optional]
+**dsptk_date_last_published** | Option<**String**> |  | [optional]
+**ico_registration_id** | Option<**String**> |  | [optional]
+**ico_date_registered** | Option<**String**> |  | [optional]
+**ico_expiry_date** | Option<**String**> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
