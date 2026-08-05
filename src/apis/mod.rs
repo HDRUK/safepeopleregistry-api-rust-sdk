@@ -111,55 +111,10 @@ impl From<&str> for ContentType {
     }
 }
 
-pub mod accreditation_api;
-pub mod action_logs_api;
-pub mod affiliation_api;
-pub mod affiliations_api;
-pub mod custodian_api;
-pub mod custodian_model_config_api;
-pub mod custodian_project_organisations_api;
-pub mod custodian_project_users_api;
 pub mod custodian_user_api;
-pub mod custodian_users_api;
-pub mod custodians_api;
-pub mod department_api;
-pub mod education_api;
-pub mod endorsement_api;
-pub mod endorsements_api;
-pub mod experience_api;
 pub mod feature_api;
-pub mod files_api;
-pub mod history_api;
-pub mod identity_api;
-pub mod infringement_api;
-pub mod notifications_api;
-pub mod ons_submission_api;
-pub mod organisation_api;
-pub mod organisations_api;
-pub mod pending_invites_api;
-pub mod permission_api;
-pub mod professional_registrations_api;
-pub mod project_api;
-pub mod project_detail_api;
-pub mod project_details_api;
-pub mod project_has_organisation_api;
-pub mod project_role_api;
-pub mod project_user_api;
 pub mod project_users_api;
-pub mod projects_api;
 pub mod query_api;
-pub mod registry_api;
-pub mod resolution_api;
-pub mod sector_api;
-pub mod subsidiaries_api;
-pub mod training_api;
-pub mod user_api;
-pub mod users_api;
-pub mod validation_checks_api;
-pub mod validation_log_comments_api;
-pub mod validation_log_with_comments_api;
-pub mod validation_logs_api;
 pub mod vendor_webhook_receiver_api;
-pub mod webhooks_api;
 
 pub mod configuration;

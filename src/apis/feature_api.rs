@@ -19,25 +19,7 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FeatureIndexError {
-    Status404(models::AffiliationsIndexByRegistryId404Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`feature_show`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum FeatureShowError {
-    Status400(models::AccreditationIndexByRegistryId400Response),
-    Status404(models::AffiliationsIndexByRegistryId404Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`feature_toggle_by_feature_id`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum FeatureToggleByFeatureIdError {
-    Status400(models::AccreditationIndexByRegistryId400Response),
-    Status404(models::AffiliationsIndexByRegistryId404Response),
+    Status404(models::FeatureIndex404Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,80 +55,6 @@ pub async fn feature_index(configuration: &configuration::Configuration, ) -> Re
     } else {
         let content = resp.text().await?;
         let entity: Option<FeatureIndexError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Return a Feature entry by its ID
-pub async fn feature_show(configuration: &configuration::Configuration, feature_id: i32) -> Result<models::FeatureIndex200Response, Error<FeatureShowError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_feature_id = feature_id;
-
-    let uri_str = format!("{}/api/v1/features/{featureId}", configuration.base_path, featureId=p_path_feature_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FeatureIndex200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FeatureIndex200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<FeatureShowError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Toggle and return a Feature entry by its ID
-pub async fn feature_toggle_by_feature_id(configuration: &configuration::Configuration, feature_id: i32) -> Result<models::FeatureIndex200Response, Error<FeatureToggleByFeatureIdError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_feature_id = feature_id;
-
-    let uri_str = format!("{}/api/v1/features/{featureId}/toggle", configuration.base_path, featureId=p_path_feature_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FeatureIndex200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FeatureIndex200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<FeatureToggleByFeatureIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

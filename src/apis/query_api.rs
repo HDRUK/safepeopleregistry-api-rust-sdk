@@ -20,15 +20,16 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum QueryQueryError {
     Status401(models::QueryQuery401Response),
-    Status404(models::AffiliationsIndexByRegistryId404Response),
+    Status404(models::FeatureIndex404Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Query the registry by Digital Identifier
-pub async fn query_query(configuration: &configuration::Configuration, x_client_id: &str, query_query_request: models::QueryQueryRequest) -> Result<models::QueryQuery200Response, Error<QueryQueryError>> {
+/// Query the registry by Digital Identifier. Authenticated via x-client-id/x-signature headers (Custodian client credential + HMAC-signed payload), not a bearer token.
+pub async fn query_query(configuration: &configuration::Configuration, x_client_id: &str, x_signature: &str, query_query_request: models::QueryQueryRequest) -> Result<models::QueryQuery200Response, Error<QueryQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_header_x_client_id = x_client_id;
+    let p_header_x_signature = x_signature;
     let p_body_query_query_request = query_query_request;
 
     let uri_str = format!("{}/api/v1/query", configuration.base_path);
@@ -38,6 +39,7 @@ pub async fn query_query(configuration: &configuration::Configuration, x_client_
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     req_builder = req_builder.header("x-client-id", p_header_x_client_id.to_string());
+    req_builder = req_builder.header("x-signature", p_header_x_signature.to_string());
     req_builder = req_builder.json(&p_body_query_query_request);
 
     let req = req_builder.build()?;

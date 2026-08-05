@@ -10,10 +10,10 @@ Method | HTTP request | Description
 
 ## query_query
 
-> models::QueryQuery200Response query_query(x_client_id, query_query_request)
+> models::QueryQuery200Response query_query(x_client_id, x_signature, query_query_request)
 Query@query
 
-Query the registry by Digital Identifier
+Query the registry by Digital Identifier. Authenticated via x-client-id/x-signature headers (Custodian client credential + HMAC-signed payload), not a bearer token.
 
 ### Parameters
 
@@ -21,6 +21,7 @@ Query the registry by Digital Identifier
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_client_id** | **String** | Custodian client ID used to authenticate the requesting custodian | [required] |
+**x_signature** | **String** | HMAC signature of the raw request body, signed with the custodian's unique identifier | [required] |
 **query_query_request** | [**QueryQueryRequest**](QueryQueryRequest.md) | Query definition | [required] |
 
 ### Return type

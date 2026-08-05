@@ -19,8 +19,8 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VendorWebhookReceiverReceiveError {
-    Status400(models::AccreditationIndexByRegistryId400Response),
-    Status500(models::ProjectHasOrganisationShow500Response),
+    Status400(models::VendorWebhookReceiverReceive400Response),
+    Status500(models::VendorWebhookReceiverReceive500Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,7 +30,7 @@ pub async fn vendor_webhook_receiver_receive(configuration: &configuration::Conf
     let p_path_provider = provider;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/v1/vendor-webhooks/{provider}", configuration.base_path, provider=crate::apis::urlencode(p_path_provider));
+    let uri_str = format!("{}/api/v1/webhooks/{provider}", configuration.base_path, provider=crate::apis::urlencode(p_path_provider));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
