@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **email_verified_at** | Option<**String**> |  | [optional]
 **consent_scrape** | Option<**bool**> |  | [optional]
 **public_opt_in** | Option<**bool**> |  | [optional]
-**declaration_signed** | Option<**bool**> |  | [optional]
 **organisation_id** | Option<**i32**> |  | [optional]
 **orcid_scanning** | Option<**i32**> |  | [optional]
 **orcid_scanning_completed_at** | Option<**String**> |  | [optional]

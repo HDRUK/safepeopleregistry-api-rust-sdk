@@ -32,8 +32,6 @@ pub struct User {
     pub consent_scrape: Option<bool>,
     #[serde(rename = "public_opt_in", skip_serializing_if = "Option::is_none")]
     pub public_opt_in: Option<bool>,
-    #[serde(rename = "declaration_signed", skip_serializing_if = "Option::is_none")]
-    pub declaration_signed: Option<bool>,
     #[serde(rename = "organisation_id", skip_serializing_if = "Option::is_none")]
     pub organisation_id: Option<i32>,
     #[serde(rename = "orcid_scanning", skip_serializing_if = "Option::is_none")]
@@ -61,7 +59,6 @@ impl User {
             email_verified_at: None,
             consent_scrape: None,
             public_opt_in: None,
-            declaration_signed: None,
             organisation_id: None,
             orcid_scanning: None,
             orcid_scanning_completed_at: None,

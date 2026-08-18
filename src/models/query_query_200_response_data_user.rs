@@ -22,8 +22,6 @@ pub struct QueryQuery200ResponseDataUser {
     pub last_name: Option<String>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
-    pub email: Option<String>,
     #[serde(rename = "registry_id", skip_serializing_if = "Option::is_none")]
     pub registry_id: Option<i32>,
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
@@ -42,8 +40,6 @@ pub struct QueryQuery200ResponseDataUser {
     pub feed_source: Option<Option<String>>,
     #[serde(rename = "public_opt_in", skip_serializing_if = "Option::is_none")]
     pub public_opt_in: Option<i32>,
-    #[serde(rename = "declaration_signed", skip_serializing_if = "Option::is_none")]
-    pub declaration_signed: Option<bool>,
     #[serde(rename = "organisation_id", skip_serializing_if = "Option::is_none")]
     pub organisation_id: Option<i32>,
     #[serde(rename = "orcid_scanning", skip_serializing_if = "Option::is_none")]
@@ -66,8 +62,6 @@ pub struct QueryQuery200ResponseDataUser {
     pub t_and_c_agreed: Option<bool>,
     #[serde(rename = "t_and_c_agreement_date", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub t_and_c_agreement_date: Option<Option<String>>,
-    #[serde(rename = "uksa_registered", skip_serializing_if = "Option::is_none")]
-    pub uksa_registered: Option<bool>,
     #[serde(rename = "is_sro", skip_serializing_if = "Option::is_none")]
     pub is_sro: Option<bool>,
     #[serde(rename = "invited_by", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -88,7 +82,6 @@ impl QueryQuery200ResponseDataUser {
             first_name: None,
             last_name: None,
             name: None,
-            email: None,
             registry_id: None,
             created_at: None,
             updated_at: None,
@@ -98,7 +91,6 @@ impl QueryQuery200ResponseDataUser {
             unclaimed: None,
             feed_source: None,
             public_opt_in: None,
-            declaration_signed: None,
             organisation_id: None,
             orcid_scanning: None,
             orcid_scanning_completed_at: None,
@@ -110,7 +102,6 @@ impl QueryQuery200ResponseDataUser {
             location: None,
             t_and_c_agreed: None,
             t_and_c_agreement_date: None,
-            uksa_registered: None,
             is_sro: None,
             invited_by: None,
             status: None,
