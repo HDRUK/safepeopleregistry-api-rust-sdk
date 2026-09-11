@@ -11,27 +11,27 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// EntityModelType : Model representing types of entity models
+/// DecisionModelType : Model representing types of decision models
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EntityModelType {
-    /// Unique identifier for the entity model type
+pub struct DecisionModelType {
+    /// Unique identifier for the decision model type
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<i32>,
-    /// Name of the entity model type
+    /// Name of the decision model type
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// Timestamp when the entity model type was created
+    /// Timestamp when the decision model type was created
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<chrono::DateTime<chrono::FixedOffset>>,
-    /// Timestamp when the entity model type was last updated
+    /// Timestamp when the decision model type was last updated
     #[serde(rename = "updated_at", skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
-impl EntityModelType {
-    /// Model representing types of entity models
-    pub fn new() -> EntityModelType {
-        EntityModelType {
+impl DecisionModelType {
+    /// Model representing types of decision models
+    pub fn new() -> DecisionModelType {
+        DecisionModelType {
             id: None,
             name: None,
             created_at: None,

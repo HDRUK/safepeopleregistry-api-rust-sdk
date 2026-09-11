@@ -29,9 +29,9 @@ pub struct DecisionModel {
     /// Description of the decision model
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    /// ID of the entity model type associated with the decision
-    #[serde(rename = "entity_model_type_id", skip_serializing_if = "Option::is_none")]
-    pub entity_model_type_id: Option<i32>,
+    /// ID of the decision model type associated with the decision
+    #[serde(rename = "decision_model_type_id", skip_serializing_if = "Option::is_none")]
+    pub decision_model_type_id: Option<i32>,
     /// Timestamp when the decision model was created
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<chrono::DateTime<chrono::FixedOffset>>,
@@ -49,7 +49,7 @@ impl DecisionModel {
             conditions,
             rule_class,
             description: None,
-            entity_model_type_id: None,
+            decision_model_type_id: None,
             created_at: None,
             updated_at: None,
         }

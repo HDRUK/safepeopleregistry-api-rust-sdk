@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **idvt_document_number** | Option<**String**> | Document number used for IDVT | [optional]
 **idvt_document_country** | Option<**String**> | Country of the document used for IDVT | [optional]
 **idvt_document_valid_until** | Option<**chrono::NaiveDate**> | Validity date of the document used for IDVT | [optional]
+**idvt_document_first_name** | Option<**String**> | First name on the document used for IDVT | [optional]
+**idvt_document_valid_last_name** | Option<**String**> | Last name on the document used for IDVT | [optional]
 **idvt_attempt_id** | Option<**String**> | ID of the IDVT attempt | [optional]
 **idvt_context_id** | Option<**String**> | Context ID for IDVT | [optional]
 **idvt_document_dob** | Option<**chrono::NaiveDate**> | Date of birth on the document used for IDVT | [optional]

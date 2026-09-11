@@ -21,8 +21,8 @@ pub struct CustodianModelConfig {
     pub created_at: Option<String>,
     #[serde(rename = "updated_at", skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<String>,
-    #[serde(rename = "entity_model_id", skip_serializing_if = "Option::is_none")]
-    pub entity_model_id: Option<i32>,
+    #[serde(rename = "decision_model_id", skip_serializing_if = "Option::is_none")]
+    pub decision_model_id: Option<i32>,
     #[serde(rename = "active", skip_serializing_if = "Option::is_none")]
     pub active: Option<bool>,
     #[serde(rename = "custodian_id", skip_serializing_if = "Option::is_none")]
@@ -36,7 +36,7 @@ impl CustodianModelConfig {
             id: None,
             created_at: None,
             updated_at: None,
-            entity_model_id: None,
+            decision_model_id: None,
             active: None,
             custodian_id: None,
         }

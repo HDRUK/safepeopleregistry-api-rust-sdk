@@ -73,6 +73,12 @@ pub struct Organisation {
     pub ce_plus_certification_num: Option<String>,
     #[serde(rename = "ce_plus_expiry_date", skip_serializing_if = "Option::is_none")]
     pub ce_plus_expiry_date: Option<String>,
+    /// True if either CE or ISO 27001 certification is currently valid
+    #[serde(rename = "ce_or_iso_certified", skip_serializing_if = "Option::is_none")]
+    pub ce_or_iso_certified: Option<bool>,
+    /// True if either CE+ or ISO 27001 certification is currently valid
+    #[serde(rename = "ce_plus_or_iso_certified", skip_serializing_if = "Option::is_none")]
+    pub ce_plus_or_iso_certified: Option<bool>,
     #[serde(rename = "idvt_result", skip_serializing_if = "Option::is_none")]
     pub idvt_result: Option<i32>,
     #[serde(rename = "idvt_result_perc", skip_serializing_if = "Option::is_none")]
@@ -149,6 +155,8 @@ impl Organisation {
             ce_plus_certified: None,
             ce_plus_certification_num: None,
             ce_plus_expiry_date: None,
+            ce_or_iso_certified: None,
+            ce_plus_or_iso_certified: None,
             idvt_result: None,
             idvt_result_perc: None,
             idvt_errors: None,

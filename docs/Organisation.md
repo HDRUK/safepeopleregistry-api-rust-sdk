@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **ce_plus_certified** | Option<**bool**> |  | [optional]
 **ce_plus_certification_num** | Option<**String**> |  | [optional]
 **ce_plus_expiry_date** | Option<**String**> |  | [optional]
+**ce_or_iso_certified** | Option<**bool**> | True if either CE or ISO 27001 certification is currently valid | [optional]
+**ce_plus_or_iso_certified** | Option<**bool**> | True if either CE+ or ISO 27001 certification is currently valid | [optional]
 **idvt_result** | Option<**i32**> |  | [optional]
 **idvt_result_perc** | Option<**i32**> |  | [optional]
 **idvt_errors** | Option<**String**> |  | [optional]

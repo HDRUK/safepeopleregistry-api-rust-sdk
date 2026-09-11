@@ -59,6 +59,12 @@ pub struct Identity {
     /// Validity date of the document used for IDVT
     #[serde(rename = "idvt_document_valid_until", skip_serializing_if = "Option::is_none")]
     pub idvt_document_valid_until: Option<chrono::NaiveDate>,
+    /// First name on the document used for IDVT
+    #[serde(rename = "idvt_document_first_name", skip_serializing_if = "Option::is_none")]
+    pub idvt_document_first_name: Option<String>,
+    /// Last name on the document used for IDVT
+    #[serde(rename = "idvt_document_valid_last_name", skip_serializing_if = "Option::is_none")]
+    pub idvt_document_valid_last_name: Option<String>,
     /// ID of the IDVT attempt
     #[serde(rename = "idvt_attempt_id", skip_serializing_if = "Option::is_none")]
     pub idvt_attempt_id: Option<String>,
@@ -110,6 +116,8 @@ impl Identity {
             idvt_document_number: None,
             idvt_document_country: None,
             idvt_document_valid_until: None,
+            idvt_document_first_name: None,
+            idvt_document_valid_last_name: None,
             idvt_attempt_id: None,
             idvt_context_id: None,
             idvt_document_dob: None,

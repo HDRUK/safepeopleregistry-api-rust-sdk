@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **conditions** | **String** | Conditions for the decision model | 
 **rule_class** | **String** | Class defining the rules for the decision model | 
 **description** | Option<**String**> | Description of the decision model | [optional]
-**entity_model_type_id** | Option<**i32**> | ID of the entity model type associated with the decision | [optional]
+**decision_model_type_id** | Option<**i32**> | ID of the decision model type associated with the decision | [optional]
 **created_at** | Option<**chrono::DateTime<chrono::FixedOffset>**> | Timestamp when the decision model was created | [optional]
 **updated_at** | Option<**chrono::DateTime<chrono::FixedOffset>**> | Timestamp when the decision model was last updated | [optional]
 
